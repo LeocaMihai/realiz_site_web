@@ -1,4 +1,18 @@
-Clasele bootstrap folosite:
+# Instructiuni de pornire cu XAMPP
+
+## Pregatire baza de date
+
+1. Se porneste serverul de MySql din XAMPP.
+2. In [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/server/databases) se creaza schema de baze date cu numele *womentechpower* (default encoding)
+3. Se ia [womentechpower.sql](docs/womentechpower.sql) si se importa in [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/database/import&db=womentechpower) din xampp, ca in [import_db_data.jpg](docs/import_db_data.jpg);
+
+## Pornire site
+
+1. Se copiaza sursele proiectului in folderul \htdocs din XAMPP.
+2. Se porneste serverul Apache din interfata XAMPP.
+3. Se acceseaza pagina de pornire a aplicatiei. http://localhost/[numele folderului cu proiectul]/
+
+# Clasele bootstrap folosite:
 
 1. Navbar
 navbar:Instantiaza bara de navigare.
