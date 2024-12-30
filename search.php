@@ -1,5 +1,5 @@
 <?php
-include_once "config/database.php";
+include_once "classes/Database.php";
 include_once "includes/header.php";
 
 $database = new Database();
