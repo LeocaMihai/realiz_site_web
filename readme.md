@@ -4,7 +4,7 @@
 
 1. Se porneste serverul de MySql din XAMPP.
 2. In [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/server/databases) se creaza schema de baze date cu numele *womentechpower* (default encoding)
-3. Se ia [womentechpower.sql](docs/womentechpower.sql) si se importa in [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/database/import&db=womentechpower) din xampp, ca in [import_db_data.jpg](docs/import_db_data.jpg);
+3. Se ia [womentechpower.sql](docs/womentechpower.sql) si se importa in [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/database/import&db=womentechpower) din xampp, ca in ![import_db_data.jpg](docs/import_db_data.jpg);
 
 ## Pornire site
 
