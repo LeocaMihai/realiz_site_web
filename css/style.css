@@ -1,0 +1,62 @@
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-color, #ffffff);
+    color: var(--text-color, #000000);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    flex: 1;
+}
+
+.footer {
+    margin-top: auto;
+}
+
+.member-card {
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.navbar-brand img {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+}
+
+.dark-mode-toggle {
+    cursor: pointer;
+    color: #fff;
+    margin-left: auto;
+}
+
+:root.dark {
+    --bg-color: #121212;
+    --text-color: #121212;
+}
+
+
+.logo-formated{
+    width: 10px;
+    height: auto;
+    min-height: 10px;
+    
+}
+
+:root {
+    --bs-primary: plum ; 
+} 
