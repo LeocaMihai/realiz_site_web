@@ -11,16 +11,17 @@
 ## Pornire site
 
 1. Pentru functionarea site-ului trebuie sa ne asiguram ca utilizatorul 'root' de DB are parola 'root'. Daca aveti deja asa, sariti la pasul 2.
--- In Admin-ul de mysql se deschide pagina de [administrare utilizatori](http://localhost/phpmyadmin/index.php?route=/server/privileges&viewing_mode=server).
--- Se [editeaza privilegiile](http://localhost/phpmyadmin/index.php?route=/server/privileges&username=root&hostname=localhost&dbname=&tablename=&routinename=) utilizatorului 'root' de pe 'host name'=localhost. In partea de sus a paginii se apasa pe "Change password', ca in 
+- In Admin-ul de mysql se deschide pagina de [administrare utilizatori](http://localhost/phpmyadmin/index.php?route=/server/privileges&viewing_mode=server).
+- Se [editeaza privilegiile](http://localhost/phpmyadmin/index.php?route=/server/privileges&username=root&hostname=localhost&dbname=&tablename=&routinename=) utilizatorului 'root' de pe 'host name'=localhost. In partea de sus a paginii se apasa pe "Change password', ca in 
 '![change_password.png](docs/change_password.png) O sa dea un warning, puteti sa-l ignorati pentru ca vom schimba si config-ul serverului.
--- Se inchide serverul Apache si deschidem fisierul de config pentru al edita. Vezi ![config_phpadmin.png](docs/config_phpadmin.png).
--- Va asigurati ca avem urmatoarele propietati
+- Se inchide serverul Apache si deschidem fisierul de config pentru al edita. Vezi ![config_phpadmin.png](docs/config_phpadmin.png).
+- Va asigurati ca avem urmatoarele propietati
 > $cfg['Servers'][$i]['user'] = 'root';
+> 
 > $cfg['Servers'][$i]['password'] = 'root';
--- pornim serverul Apache. Verificam ca putem deschide [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/server/databases)
+- pornim serverul Apache. Verificam ca putem deschide [Admin-ul de mysql](http://localhost/phpmyadmin/index.php?route=/server/databases)
 2. Se copiaza sursele proiectului in folderul \htdocs din XAMPP.
-3. Se acceseaza pagina de pornire a aplicatiei. http://localhost/[numele folderului cu proiectul]/
+3. Se acceseaza pagina de pornire a aplicatiei, completati voi numele folderului de proiect. `http://localhost/{numele folderului cu proiectul}/`
 
 # Clasele bootstrap folosite:
 
