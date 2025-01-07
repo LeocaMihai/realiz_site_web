@@ -31,3 +31,5 @@ $professionDistribution = $professionDistributionStmt->fetchAll(PDO::FETCH_ASSOC
         <?php endforeach; ?>
     </ul>
 </div>
+
+<script src="js/main.js"></script>

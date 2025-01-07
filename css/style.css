@@ -46,9 +46,20 @@ body {
 
 :root.dark {
     --bg-color: #121212;
-    --text-color: #121212;
+    --text-color: #ffffff;
 }
 
+:root.dark .member-card {
+    background-color: #1e1e1e; /* Un fundal mai închis pentru card */
+    color: #ffffff; /* Text alb */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Lumina potrivită pentru modul Dark */
+}
+
+:root.dark .jumbotron {
+    background-color: #1e1e1e; /* Un fundal mai închis pentru card */
+    color: #ffffff; /* Text alb */
+    box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1); /* Lumina potrivită pentru modul Dark */
+}
 
 .logo-formated{
     width: 10px;
