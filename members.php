@@ -17,7 +17,7 @@ $perPage = 6;
 $offset = ($page - 1) * $perPage;
 
 
-$totalMembers = $member->getTotal($filterProfession);
+$totalMembers = $member->getTotal($filterProfession, $filterCompany);
 if (!is_int($totalMembers)) {
     echo "Error: Total members is not an integer.";
     var_dump($totalMembers);

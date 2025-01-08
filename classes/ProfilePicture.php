@@ -9,7 +9,6 @@ class ProfilePicture {
             $targetFilePath = $uploadDir . uniqid() . "_" . $fileName;
     
             if (move_uploaded_file($requestFile['tmp_name'], $targetFilePath)) {
-                $profilePicture = $targetFilePath;
                 return $targetFilePath;
             }
         }

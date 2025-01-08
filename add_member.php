@@ -21,10 +21,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         'profession' => $_POST['profession'],
         'company' => $_POST['company'],
         'expertise' => $_POST['expertise'],
-        'linkedin_profile' => $_POST['linkedin_profile']
+        'linkedin_profile' => $_POST['linkedin_profile'],
+        'profile_picture' => $profilePicturePath
     ];
 
-    if ($member->create($data, $profilePicturePath)) {
+    if ($member->create($data)) {
         $lastId = $db->lastInsertId();
         header("Location: members.php");
         exit();
