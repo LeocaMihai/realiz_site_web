@@ -26,7 +26,7 @@ if (!is_int($totalMembers)) {
 
 $totalPages = ceil($totalMembers / $perPage);
 
-$members = $member->getAll($filterProfession, $sortBy, $perPage, $offset);
+$members = $member->getAll($filterProfession, $filterCompany, $sortBy, $perPage, $offset);
 if (!is_array($members)) {
     echo "Error: Members data is not an array.";
     var_dump($members);

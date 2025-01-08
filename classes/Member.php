@@ -42,10 +42,14 @@ class Member {
     }
 
 
-    public function getAll($filterProfession = '', $sortBy = 'created_at', $perPage = 6, $offset = 0) {
-        $query = "SELECT * FROM members WHERE profession LIKE :profession ORDER BY $sortBy LIMIT :limit OFFSET :offset";
-        $stmt = $this->db->prepare($query);
+    public function getAll($filterProfession = '', $filterCompany = '', $sortBy = 'created_at', $perPage = 6, $offset = 0) {
+        $queryStart = "SELECT * FROM members WHERE profession LIKE :profession AND company LIKE :company ";
+        $querySort = $sortBy == 'created_at' || $sortBy == null ? " ORDER BY created_at desc " : " ORDER BY last_name asc, first_name asc ";
+        $queryEnd = " LIMIT :limit OFFSET :offset";
+
+        $stmt = $this->db->prepare($queryStart . $querySort . $queryEnd);
         $stmt->bindValue(':profession', "%$filterProfession%", PDO::PARAM_STR);
+        $stmt->bindValue(':company', "%$filterCompany%", PDO::PARAM_STR);
         $stmt->bindValue(':limit', $perPage, PDO::PARAM_INT);
         $stmt->bindValue(':offset', $offset, PDO::PARAM_INT);
 
