@@ -24,15 +24,22 @@ $professionDistribution = $professionDistributionStmt->fetchAll(PDO::FETCH_ASSOC
 <h2>Dashboard</h2>
 <div>
     <h3>Total Members: <?php echo $totalMembers; ?></h3>
-    <h3>Profession Distribution:</h3>
-    <ul>
-        <?php foreach ($professionDistribution as $profession): ?>
-            <li class="d-flex flex-column flex-sm-row gap-2 mb-4 align-middle justify-content-sm-left">
-                <span><?php echo htmlspecialchars($profession['profession']); ?> : <?php echo $profession['count']; ?></span>
-                <a class="btn btn-primary btn-sm" href="members.php?profession=<?php echo htmlspecialchars($profession['profession']); ?>">See all</a>
-            </li>
-        <?php endforeach; ?>
-    </ul>
+
+    <?php if ($totalMembers == 0): ?>
+        <div class="alert alert-info" role="alert">
+            There are no members.
+        </div>
+    <?php else: ?>
+        <h3>Profession Distribution:</h3>
+        <ul>
+            <?php foreach ($professionDistribution as $profession): ?>
+                <li class="d-flex flex-column flex-sm-row gap-2 mb-4 align-middle justify-content-sm-left">
+                    <span><?php echo htmlspecialchars($profession['profession']); ?> : <?php echo $profession['count']; ?></span>
+                    <a class="btn btn-primary btn-sm" href="members.php?profession=<?php echo htmlspecialchars($profession['profession']); ?>">See all</a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+    <?php endif; ?>
 </div>
 
 <?php

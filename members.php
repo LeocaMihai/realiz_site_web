@@ -10,6 +10,7 @@ $member = new Member($db);
 
 
 $filterProfession = $_GET['profession'] ?? '';
+$filterCompany = $_GET['company'] ?? '';
 $sortBy = $_GET['sort_by'] ?? 'created_at';
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
 $perPage = 6;
@@ -35,28 +36,41 @@ if (!is_array($members)) {
 ?>
 
 <h2>Members Directory</h2>
-<form method="GET" class="form-inline mb-4">
+
+<form method="GET" class="d-flex flex-column flex-md-row gap-2 mb-4 align-middle">
     <div class="form-group mr-2">
-        <input type="text" name="profession" class="form-control" placeholder="Filter by Profession"
-               value="<?php echo htmlspecialchars($filterProfession); ?>">
+        <input type="text" name="profession" class="form-control form-control-sm" placeholder="Profession"
+            value="<?php echo htmlspecialchars($filterProfession); ?>">
     </div>
     <div class="form-group mr-2">
-        <select name="sort_by" class="form-control">
+        <input type="text" name="company" class="form-control form-control-sm" placeholder="Company"
+            value="<?php echo htmlspecialchars($filterCompany); ?>">
+    </div>
+    <div class="form-group">
+        <select name="sort_by" class="form-control  form-control-sm">
             <option value="created_at" <?php echo $sortBy === 'created_at' ? 'selected' : ''; ?>>Newest</option>
-            <option value="first_name" <?php echo $sortBy === 'first_name' ? 'selected' : ''; ?>>Name</option>
+            <option value="name" <?php echo $sortBy === 'name' ? 'selected' : ''; ?>>Full Name</option>
         </select>
     </div>
-    <button type="submit" class="btn btn-success">Apply</button>
+    <button type="submit" class="btn btn-sm btn-secondary">Filter</button>
 </form>
 
 <?php if (empty($members)): ?>
-    <p>No members found.</p>
+    <div class="alert alert-info" role="alert">
+        No members found.
+    </div>
 <?php else: ?>
     <div class="row">
         <?php foreach ($members as $m): ?>
             <div class="col-md-4">
                 <div class="card member-card">
-                    <img src="<?php echo htmlspecialchars($m['profile_picture']); ?>" class="card-img-top" alt="Profile Picture">
+
+                    <?php if ($m['profile_picture'] != null): ?>
+                        <img src="<?php echo htmlspecialchars($m['profile_picture']); ?>" class="card-img-top" alt="Profile Picture">
+                    <?php else: ?>
+                        <img src="image/profile_default.jpg" class="card-img-top" alt="Profile Picture">
+                    <?php endif; ?>
+
                     <div class="card-body">
                         <h5 class="card-title"><?php echo htmlspecialchars($m['first_name'] . ' ' . $m['last_name']); ?></h5>
                         <p class="card-text">
@@ -65,7 +79,7 @@ if (!is_array($members)) {
                         </p>
                         <a href="edit_member.php?id=<?php echo $m['id']; ?>" class="btn btn-success">Edit</a>
                         <a href="delete_member.php?id=<?php echo $m['id']; ?>" class="btn btn-danger"
-                           onclick="return confirm('Are you sure?')">Delete</a>
+                            onclick="return confirm('Are you sure?')">Delete</a>
                     </div>
                 </div>
             </div>
@@ -73,7 +87,7 @@ if (!is_array($members)) {
     </div>
 
     <nav>
-        <ul class="pagination">
+        <ul class="pagination mt-5">
             <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                 <li class="page-item <?php echo $i === $page ? 'active' : ''; ?>">
                     <a class="page-link" href="?page=<?php echo $i; ?>&profession=<?php echo urlencode($filterProfession); ?>&sort_by=<?php echo urlencode($sortBy); ?>">

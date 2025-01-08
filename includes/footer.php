@@ -1,5 +1,5 @@
 </div>
-<footer class="footer mt-auto py-3 bg-light">
+<footer class="footer mt-auto py-3">
  <div class="container text-center">
    <span class="text-muted">© 2024 Women in FinTech</span>
  </div>

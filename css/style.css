@@ -12,13 +12,7 @@ body {
     margin-top: auto;
 }
 
-.member-card {
-    margin-bottom: 20px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.member-card:hover {
+.card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -30,20 +24,17 @@ body {
 }
 
 .navbar-brand img {
-    width: 40px;
-    height: 40px;
+    width: 50px;
     margin-right: 10px;
-}
-
-.dark-mode-toggle {
-    cursor: pointer;
-    color: #fff;
-    margin-left: auto;
-}
-
-.logo-formated{
-    width: 10px;
     height: auto;
-    min-height: 10px;
-    
+    min-height: 10px; 
+}
+
+html[data-bs-theme='dark'] .navbar, html[data-bs-theme='dark'] .footer {
+    background-color: #123524;
+}
+
+
+html[data-bs-theme='light'] .navbar, html[data-bs-theme='light'] .footer {
+    background-color: #A9C46C;
 }

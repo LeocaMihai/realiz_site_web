@@ -1,7 +1,10 @@
 <?php
 
+require_once 'ProfilePicture.php';
+
 class Member {
     private $db;
+    
     public function __construct($db) {
         $this->db = $db;
     }
@@ -27,6 +30,11 @@ class Member {
     }
 
     public function delete($id) {
+        $memberData = $this -> getById($id);
+        
+        $profilePicture = new ProfilePicture();
+        $profilePicture -> deleteIfExists($memberData['profile_picture']);
+
         $query = "DELETE FROM members WHERE id = :id";
         $stmt = $this->db->prepare($query);
         $stmt->bindParam(':id', $id);
@@ -79,5 +87,6 @@ class Member {
             return null; 
         }
     }
+    
 }
 ?>
