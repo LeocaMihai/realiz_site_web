@@ -60,9 +60,9 @@ if (!is_array($members)) {
         No members found.
     </div>
 <?php else: ?>
-    <div class="row">
+    <div class="d-flex flex-column flex-md-row flex-wrap">
         <?php foreach ($members as $m): ?>
-            <div class="col-md-4">
+            <div class="col-12 col-md-3 pb-4 pe-3">
                 <div class="card member-card">
 
                     <?php if ($m['profile_picture'] != null): ?>
