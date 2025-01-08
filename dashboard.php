@@ -27,9 +27,14 @@ $professionDistribution = $professionDistributionStmt->fetchAll(PDO::FETCH_ASSOC
     <h3>Profession Distribution:</h3>
     <ul>
         <?php foreach ($professionDistribution as $profession): ?>
-            <li><?php echo htmlspecialchars($profession['profession']); ?>: <?php echo $profession['count']; ?></li>
+            <li class="d-flex flex-column flex-sm-row gap-2 mb-4 align-middle justify-content-sm-left">
+                <span><?php echo htmlspecialchars($profession['profession']); ?> : <?php echo $profession['count']; ?></span>
+                <a class="btn btn-primary btn-sm" href="members.php?profession=<?php echo htmlspecialchars($profession['profession']); ?>">See all</a>
+            </li>
         <?php endforeach; ?>
     </ul>
 </div>
 
-<script src="js/main.js"></script>
+<?php
+include_once "includes/footer.php";
+?>

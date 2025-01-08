@@ -1,6 +1,7 @@
 <?php
 include_once "classes/Member.php";
 include_once "classes/Database.php";
+include_once "includes/header.php";
 
 $database = new Database();
 $db = $database->getConnection();
@@ -14,7 +15,7 @@ if (isset($_GET['id'])) {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $profilePicture = $memberData['profile_picture']; 
+    $profilePicture = $memberData['profile_picture'];
 
     if (isset($_FILES['profile_picture']) && $_FILES['profile_picture']['error'] === UPLOAD_ERR_OK) {
         $uploadDir = 'uploads/';
@@ -57,3 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit">Update Member</button>
     </form>
 </div>
+
+<?php
+include_once "includes/footer.php";
+?>
